@@ -1,14 +1,57 @@
-# Human Action Recognition using YOLOv11
+# Human Action Recognition using YOLO11
 
-Real-time human action recognition (Run, Sit, Stand, Walk) built with YOLOv11 (Ultralytics) and OpenCV, trained on a custom Roboflow dataset.
+![Python](https://img.shields.io/badge/Python-3.10+-blue)
+![PyTorch](https://img.shields.io/badge/PyTorch-2.x-red)
+![YOLO11](https://img.shields.io/badge/YOLO-v11-green)
 
-![Python](https://img.shields.io/badge/Python-3.10-blue)
-![PyTorch](https://img.shields.io/badge/PyTorch-CUDA%2012.8-orange)
-![YOLOv11](https://img.shields.io/badge/YOLOv11-Ultralytics-purple)
-
+A Human Action Recognition (HAR) project built with **YOLO11** using the Ultralytics framework. This project provides an end-to-end pipeline for training, evaluating, and performing real-time human action recognition from images using a custom YOLO-format dataset.
 
 ---
+## ✨ Features
 
+- Train a YOLO11 model for human action recognition
+- Evaluate model performance on a test dataset
+- Real-time webcam inference
+- Analyze dataset statistics before training
+- Split datasets into training, validation, and test sets
+- GPU acceleration with CUDA (if available)
+
+## 🖼️ Image Inference
+
+Run inference on an image using the trained model.
+
+```bash
+python test.py
+```
+
+The prediction result will be saved automatically to:
+
+```
+runs/detect/predict/
+```
+
+Example output:
+
+- Predicted action label
+- Bounding box
+- Confidence score
+
+
+## 📂 Project Structure
+
+```
+human-action-recognition/
+│
+├── train.py               # Train the YOLO11 model
+├── test.py                # Run inference on an image
+├── webcam.py              # Real-time webcam inference
+├── split_dataset.py       # Split dataset into train/valid/test
+├── analyze_dataset.py     # Analyze dataset statistics
+├── check_gpu.py        # Check CUDA/GPU availability
+├── requirements.txt       # Project dependencies
+├── README.md
+└── dataset/               # YOLO-format dataset
+```
 ## 📌 Overview
 
 | | |
@@ -23,20 +66,6 @@ Real-time human action recognition (Run, Sit, Stand, Walk) built with YOLOv11 (U
 
 ---
 
-## 📂 Project Structure
-
-```
-.
-├── 1_ split_dataset.py        # Create train/valid/test split
-├── 2_ check_gpu_setup.py      # Step 3: verify PyTorch + Ultralytics + GPU
-├── 3_ train.py                # Train the model
-├── 4_ test_model.py           # Evaluate the model
-├── 5_ webcam_inference.py     # Real-time webcam inference
-├── 6_ analyze_and_improve.py  # Chart the results + improvement suggestions
-├── requirements.txt
-└── README.md
-```
----
 
 ## 🛠️ Setup
 
@@ -69,18 +98,12 @@ If the downloaded `data.yaml` has broken relative paths (`../train/images`), fix
 
 ### 2️⃣ Create train / valid / test split
 
-```bash
-python split_dataset.py --source dataset/ --output dataset_split/ --seed 42
-```
 
 Splits the ~9,600 images **70/20/10** with a fixed random seed for reproducibility (only needed if your Roboflow download didn't already include a split).
 
 ### 3️⃣ Install PyTorch + Ultralytics for GPU
 
 ```bash
-pip install torch --index-url https://download.pytorch.org/whl/cu128
-pip install ultralytics
-```
 
 Quick check that the GPU is visible to PyTorch:
 ```bash
