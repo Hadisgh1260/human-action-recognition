@@ -164,7 +164,7 @@ Classes:
 
 Dataset Source:
 
-https://universe.roboflow.com/hadis-gh/action-recognition-y9uip
+https://app.roboflow.com/hadis-gh/action-recognition-y9uip
 
 ---
 
