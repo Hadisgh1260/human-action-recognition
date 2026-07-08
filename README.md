@@ -52,6 +52,43 @@ human-action-recognition/
 ├── README.md
 └── dataset/               # YOLO-format dataset
 ```
+
+## ⚙️ Installation
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Hadisgh1260/human-action-recognition.git
+cd human-action-recognition
+```
+
+### 2. Create a virtual environment (Recommended)
+
+**Windows**
+
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
+
+**Linux / macOS**
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+### 3. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Verify GPU availability (Optional)
+
+```bash
+python check_gpu.py
+```
 ## 📌 Overview
 
 | | |
